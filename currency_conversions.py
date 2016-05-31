@@ -6,6 +6,15 @@ class Money:
         self.value = value
         self.currency = currency
 
+    def convert_to_currency(self, other):
+        if self.currency == 'JPY':
+            if other.currency == 'USD':
+                return self.converted_value * .00903
+            elif other.currency == 'EUR':
+                return self.converted_value * .00811
+            elif other.currency == 'BTC':
+                return self.converted_value * .000017
+
     def get_value(self):
         if self.currency == 'USD':
             return self.value*1
@@ -47,7 +56,7 @@ class Money:
         return self.get_value() > other.get_value()
 
     def __add__(self, other):
-        return self.get_value() + other.get_value()
+        return self.get_value() + self.get_value()
 
     def __sub__(self, other):
         return self.get_value() - other.get_value()
@@ -61,5 +70,5 @@ class Money:
 test_1 = Money(1, 'BTC')
 test_2 = Money(6, 'EUR')
 print(test_1 == test_2)
-answer = test_2 + test_1
-print(answer)
+print(test_2 + test_1)
+print(test_2 % test_1)
