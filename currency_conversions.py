@@ -1,3 +1,4 @@
+import re
 
 
 class Money:
@@ -101,5 +102,16 @@ class Money:
         elif self.currency == 'BTC':
             return mod_value * .0019
 
-print(Money(1, 'BTC') + Money(45, 'EUR'))
-print(Money(28, 'EUR') - Money(400, 'JPY'))
+
+# def split_problem():
+#    problem = input('>>> ')
+#    # problem_list = re.split("([+-*%])", problem.replace(' ', ''))
+#    problem_list = problem.split('[+-*%]')
+#    return(problem_list)
+# math_problem = split_problem()
+# problems_list = problem.re.split("([+-*%])")
+# for object in problems_list:
+#    print(object)
+# print(math_problem)
+
+print(Money(5, 'USD') - Money(2, 'EUR'))
